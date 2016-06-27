@@ -23,8 +23,8 @@ $('#pinterest-auth').on('click', function() {
 			var data = res.data[0];
 			$('#user-name').val("Something");
 			$('#user-contant').append('<h3>' + data.name + '</h3>');
-			$('#user-contant').append('<img alt="board image" src="' + data.image['60x60'].url'">' + data.name + '</img>');
-			$('#user-contant').append('<div>' + data.url + '</divv>');
+			$('#user-contant').append('<img alt="board image" src="' + data.image['60x60'].url + '"></img>');
+			$('#user-contant').append('<div>' + data.url + '</div>');
 		});
 	});
 })
