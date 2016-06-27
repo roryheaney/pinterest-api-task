@@ -53,7 +53,14 @@ $('#pinterest-auth').on('click', function() {
 				we need.
 			*/
 			userBoards.data.forEach( function (board) {
-				$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
+				$('.user-content').empty(); // Empties the user content to avoid multiple istances of same boards
+				// Handling the case where a board is empty
+				if (board.image) {
+					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
+				} else {
+					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><div class="board-no-img">No Image</div><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
+				}
+
 			})
 		});
 	});
