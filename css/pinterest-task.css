@@ -19,3 +19,13 @@ body {
 .btn:focus {
 	outline: none;
 }
+.user-content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.user-board {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+}
