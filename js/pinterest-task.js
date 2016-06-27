@@ -21,10 +21,10 @@ $('#pinterest-auth').on('click', function() {
 		PIN_AUTH = res.session.accessToken;
 		$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + PIN_AUTH +"&fields=id%2Cname%2Curl%2Cimage", function( res ) {
 			var data = res.data[0];
-			$('#user-name').val("Something");
-			$('#user-contant').append('<h3>' + data.name + '</h3>');
-			$('#user-contant').append('<img alt="board image" src="' + data.image['60x60'].url + '"></img>');
-			$('#user-contant').append('<div>' + data.url + '</div>');
+			$('#user-content').append('<h3>' + data.name + '</h3>');
+			$('#user-content').append('<img alt="board image" src="' + data.image['60x60'].url + '"></img>');
+			$('#user-content').append('<div>' + data.url + '</div>');
+			console.log('success!');
 		});
 	});
 })
