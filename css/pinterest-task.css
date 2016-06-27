@@ -35,7 +35,7 @@
 .user-content {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	margin: 70px auto;
 }
 .user-board {
@@ -47,6 +47,7 @@
 	background-color: #FFFFF3;
 	border-radius: 15px;
 	box-shadow: 0px 0px 8px rgba(0,0,0,.2);
+	margin: 20px 0;
 }
 a {
 	text-decoration: none;
