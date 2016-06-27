@@ -3,14 +3,29 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Pinterest API Task</title>
+		<link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/pinterest-task.css">
 	</head>
 	<body>
-		<h1>A simple Pinterest API Test</h1>
-		<p>
-			By clicking on the button you will be redirected to pinterest where you can authorize the app to access your data. Once the authorization goes through you will be able to see the data retrieved from your profile, like the board.
-		</p>
-		<button id="pinterest-auth">Authorize!</button>
-		<script src="jquery-3.0.0.min.js" />
-		<script src="pinterest-task.js" />
+		<div class="container">
+			<h1>A simple Pinterest API Test</h1>
+			<p>This API test shows how to retrieve a Pinterest user boards with related image, title and link to the board itself. According to the official API documentation it is only possible to retrieve a 60x60 image which has been associated with each board.</p>
+
+			<p>Clicking "Retrieve Boards" a popup will appear requesting access to the user data, this will grant the app access to his/her data which can be retrieved according to the API endpoints. The authorization popup is mandatory but once a token has been generated for that user, it can be reused accordingly to avoid submitting the same authorization request multiple times. A second request will retrieve the latest boards from the user profile.</p>
+
+			<h2>Necessary steps</h2>
+			<p>
+				In order to achive the result showed here, one needs to create an App inquiry on the Pinterest developer webiste. This will grant access to the App ID which is necessary in order to submit requests to the API.
+			</p>
+			<p>
+				The rest is well commented on the source code.
+			</p>
+			<button id="pinterest-auth" class="btn">Retrieve Boards</button>
+			<div id="user-data">
+				<div class="user-content"></div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+		<script type="text/javascript" src="js/pinterest-task.js"></script>
 	</body>
 </html>
