@@ -20,7 +20,7 @@ $('#pinterest-auth').on('click', function() {
 	PDK.login({ scope : 'read_public, write_public' }, function(res) {
 		PIN_AUTH = res.session.accessToken;
 		console.log(PIN_AUTH);
-		$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + PIN_AUTH +"&fields=id%2Cname%2Curl", function( data ) {
+		$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + PIN_AUTH +"&fields=id%2Cname%2Curl%2Cimage", function( data ) {
 			console.log(data);
 		});
 	});
