@@ -52,8 +52,8 @@ $('#pinterest-auth').on('click', function() {
 				In this case we loop through each board of the user and display the data
 				we need.
 			*/
+			$('.user-content').empty(); // Empties the user content to avoid multiple istances of same boards
 			userBoards.data.forEach( function (board) {
-				$('.user-content').empty(); // Empties the user content to avoid multiple istances of same boards
 				// Handling the case where a board is empty
 				if (board.image['60x60'].url) {
 					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
