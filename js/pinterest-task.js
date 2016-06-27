@@ -21,9 +21,7 @@ $('#pinterest-auth').on('click', function() {
 		PIN_AUTH = res.session.accessToken;
 		$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + PIN_AUTH +"&fields=id%2Cname%2Curl%2Cimage", function( res ) {
 			res.data.forEach( function (board) {
-				$('#user-content').append('<div class="user-board"><h3>' + board.name + '</h3>');
-				$('#user-content').append('<img alt="board image" src="' + board.image['60x60'].url + '"></img>');
-				$('#user-content').append('<div>' + board.url + '</div></div>');
+				$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url '" target="_blank"><button class="btn">Link</button></div>');
 			})
 		});
 	});
