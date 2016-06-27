@@ -1,4 +1,5 @@
 var PIN_ID = "4842372640771424402";
+var PIN_AUTH = "";
 
 window.pAsyncInit = function() {
 	PDK.init({
@@ -17,6 +18,10 @@ window.pAsyncInit = function() {
 
 $('#pinterest-auth').on('click', function() {
 	PDK.login({ scope : 'read_public, write_public' }, function(res) {
-		console.log(res);
+		PIN_AUTH = res.session.accessToken;
+		console.log(PIN_AUTH);
+		PDK.me('boards', { fields: 'boards' }, function(res) {
+			console.log(res);
+		});
 	});
 })
