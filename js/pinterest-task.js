@@ -25,8 +25,7 @@ window.pAsyncInit = function() {
 $('#pinterest-auth').on('click', function() {
 	/*
 		Here we require the user to gran the App access to his/her data, it is important
-		to specify in the scope what kind of authorization is needed, in our case we are
-		only reading public data from the user so 'read_public' is enough.
+		to specify in the scope what kind of authorization is needed, it can be read_public, write_public, .
 	*/
 	if (AUTH) {
 		PDK.login({ scope : 'read_public' }, function(res) {
@@ -36,6 +35,11 @@ $('#pinterest-auth').on('click', function() {
 				the API endpoint adding the token. This url is already set up to
 				retrieve a user board name, url, image and id.
 			*/
+			if (res.error) {
+				PDK.getSession({}, function(access) {
+					console.log(access);
+				})
+			}
 			var accessToken = res.session.accessToken;
 			$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + accessToken +"&fields=id%2Cname%2Curl%2Cimage", function( userBoards ) {
 				/*
