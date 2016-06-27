@@ -19,9 +19,12 @@ window.pAsyncInit = function() {
 $('#pinterest-auth').on('click', function() {
 	PDK.login({ scope : 'read_public, write_public' }, function(res) {
 		PIN_AUTH = res.session.accessToken;
-		console.log(PIN_AUTH);
-		$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + PIN_AUTH +"&fields=id%2Cname%2Curl%2Cimage", function( data ) {
-			console.log(data);
+		$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + PIN_AUTH +"&fields=id%2Cname%2Curl%2Cimage", function( res ) {
+			var data = res.data[0];
+			$('#user-name').val("Something");
+			$('#user-contant').append('<h3>' + data.name + '</h3>');
+			$('#user-contant').append('<img alt="board image" src="' + data.image['60x60'].url'">' + data.name + '</img>');
+			$('#user-contant').append('<div>' + data.url + '</divv>');
 		});
 	});
 })
