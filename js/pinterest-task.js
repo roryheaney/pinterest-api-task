@@ -35,12 +35,12 @@ $('#pinterest-auth').on('click', function() {
 				the API endpoint adding the token. This url is already set up to
 				retrieve a user board name, url, image and id.
 			*/
+			var accessToken;
 			if (res.error) {
-				PDK.getSession({}, function(access) {
-					console.log(access);
-				})
+				accessToken = PDK.getSession().accessToken;
+			} else {
+				accessToken = res.session.accessToken;
 			}
-			var accessToken = res.session.accessToken;
 			$.getJSON( "https://api.pinterest.com/v1/me/boards/?access_token=" + accessToken +"&fields=id%2Cname%2Curl%2Cimage", function( userBoards ) {
 				/*
 					Once the request goes through we are able to display the user data.
