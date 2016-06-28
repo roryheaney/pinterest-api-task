@@ -61,7 +61,7 @@ $('#pinterest-auth').on('click', function() {
 					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><div class="board-no-img">No Image</div><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
 				}
 
-			})
+			});
 		});
 	});
-})
+});
