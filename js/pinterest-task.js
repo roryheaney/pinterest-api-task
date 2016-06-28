@@ -56,6 +56,7 @@ $('#pinterest-auth').on('click', function() {
 			userBoards.data.forEach( function (board) {
 				// Handling the case where a board is empty
 				if (board.image['60x60'].url) {
+					// Here you can decide what to do with the data, currently I am just appending such data inside a div to be displayed for simplicity.
 					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
 				} else {
 					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><div class="board-no-img">No Image</div><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
