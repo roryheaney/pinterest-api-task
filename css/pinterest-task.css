@@ -32,7 +32,8 @@
 .btn:hover {
 	opacity: 1
 }
-.user-content {
+.user-content,
+.user-content-api {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -52,6 +53,10 @@
 .board-no-img {
 	width: 60px;
 	height: 60px;
+}
+.board-no-img-m {
+	width: 216px;
+	height: 146px;
 }
 a {
 	text-decoration: none;

@@ -52,17 +52,17 @@ $('#pinterest-auth').on('click', function() {
 				In this case we loop through each board of the user and display the data
 				we need.
 			*/
-			$('.user-content').empty(); // Empties the user content to avoid multiple istances of same boards
+			$('user-content-api').empty(); // Empties the user content to avoid multiple istances of same boards
 			userBoards.data.forEach( function (board) {
 				// Handling the case where a board is empty
 				if (board.image['60x60'].url) {
 					// Here you can decide what to do with the data, currently I am just appending such data inside a div to be displayed for simplicity.
-					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
+					$('.user-content-api').append('<div class="user-board"><h3>' + board.name + '</h3><img alt="board image" src="' + board.image['60x60'].url + '"></img><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
 				} else {
-					$('.user-content').append('<div class="user-board"><h3>' + board.name + '</h3><div class="board-no-img">No Image</div><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
+					$('.user-content-api').append('<div class="user-board"><h3>' + board.name + '</h3><div class="board-no-img">No Image</div><a href="' + board.url + '" target="_blank"><button class="btn">Link</button></div>');
 				}
 
-			})
+			});
 		});
 	});
-})
+});
