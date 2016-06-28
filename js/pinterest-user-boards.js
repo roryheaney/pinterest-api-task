@@ -6,14 +6,15 @@
  */
 
 function getUserBoards(userName, callback) {
-	$.getJSON("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22https%3A%2F%2Fwww.pinterest.com%2F" + userName + "%2F%22%20and%20xpath%3D'%2F%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv'&format=json&diagnostics=true&callback=", function(res) {
+	$.getJSON("https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%3D%22https%3A%2F%2Fwww.pinterest.com%2F" + userName + "%2F%22%20and%20xpath%3D'%2F%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv%2Fdiv'&format=json&diagnostics=true")
+	.done(function(res) {
 		var boardsList = res.query.results.div;
 		var userBoards = [];
 		for (var i=0, numBoards = boardsList.length; i<numBoards; i++) {
 			if (boardsList[i].class === 'Board Module boardCoverImage') {
 				var board = {
 					title: boardsList[i].div[0].div[1].h2.content,
-					href: boardsList[i].a.href,
+					href: 'https://www.pinterest.com/' + boardsList[i].a.href,
 					imageUrl: boardsList[i].div[1].div.img.src
 				}
 				userBoards.push(board);
@@ -23,6 +24,9 @@ function getUserBoards(userName, callback) {
 				callback(userBoards);
 			}
 		}
+	})
+	.fail(function() {
+		console.error("Something went wrong processing your request. Check the getUserBoards method!");
 	});
 };
 
