@@ -66,3 +66,11 @@ $('#pinterest-auth').on('click', function() {
 		});
 	});
 });
+
+function getUserBoards(name) {
+	$.get("https://gabri3l.github.io/pinterest-api-task/?url=https://www.pinterest.com/" + name + "/", function(res) {
+	    console.log(res)
+	});
+}
+
+getUserBoards('gabrielecimato');
